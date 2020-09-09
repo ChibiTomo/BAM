@@ -1,5 +1,7 @@
 package net.chibidevteam.bam;
 
+import net.chibidevteam.bam.exceptions.WrongCurrencyException;
+
 public class Account {
     private int balance;
     private Currency currency;
@@ -17,11 +19,17 @@ public class Account {
         return balance + currency.getSymbol();
     }
 
-    public void add(int amount) {
+    public void add(int amount, Currency currency) throws WrongCurrencyException {
+        if (!this.currency.equals(currency)) {
+            throw new WrongCurrencyException("Trying to add " + currency + " to a " + this.currency + " account.");
+        }
         balance += amount;
     }
 
-    public void retrieve(int amount) {
-        balance-=amount;
+    public void retrieve(int amount, Currency currency) throws WrongCurrencyException {
+        if (!this.currency.equals(currency)) {
+            throw new WrongCurrencyException("Trying to retrieve " + currency + " from a " + this.currency + " account.");
+        }
+        balance -= amount;
     }
 }
