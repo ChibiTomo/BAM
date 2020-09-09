@@ -162,7 +162,7 @@ public class AccountTest {
 
         // THEN
         List<String> expected = Arrays.asList("Creation: 20$");
-        assertThat(account.getHistoric()).containsExactlyInAnyOrderElementsOf(expected);
+        assertThat(account.getHistoric()).containsExactlyElementsOf(expected);
     }
 
     @Test
@@ -176,7 +176,7 @@ public class AccountTest {
 
         // THEN
         List<String> expected = Arrays.asList("Creation: 20$", "Credit: 10$");
-        assertThat(account.getHistoric()).containsExactlyInAnyOrderElementsOf(expected);
+        assertThat(account.getHistoric()).containsExactlyElementsOf(expected);
     }
 
     @Test
@@ -190,7 +190,7 @@ public class AccountTest {
 
         // THEN
         List<String> expected = Arrays.asList("Creation: 20$", "Debit: 10$");
-        assertThat(account.getHistoric()).containsExactlyInAnyOrderElementsOf(expected);
+        assertThat(account.getHistoric()).containsExactlyElementsOf(expected);
     }
 
     @Test
@@ -207,7 +207,7 @@ public class AccountTest {
 
         // THEN
         List<String> expected = Arrays.asList("Creation: 20$", "Credit: 10$", "Debit: 20$", "Credit: 50$", "Debit: 15$");
-        assertThat(account.getHistoric()).containsExactlyInAnyOrderElementsOf(expected);
+        assertThat(account.getHistoric()).containsExactlyElementsOf(expected);
     }
 
 }
